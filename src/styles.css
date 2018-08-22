@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Nova+Square");
+
+html * {
+  box-sizing: border-box;
+  font-family: "Nova Square", cursive;
+}
+body {
+  display: flex;
+  height: 97vh;
+  justify-content: center;
+  align-items: center;
+  background: #212121;
+}
+.app {
+  position: relavite;
+  width: 25vw;
+  height: auto;
+  background: #eaebed;
+  background: transparent;
+  box-shadow: 0 0 30px 5px #444;
+}
+.display {
+  width: auto;
+  height: 50px;
+  background: #fcfcfc;
+  border: 1px solid gray;
+  border-radius: 5px 5px 0 0;
+  text-align: right;
+  line-height: 1.8;
+  padding: 0 5px;
+  font-size: 1.6em;
+}
+.keypad {
+  display: flex;
+  width: 100%;
+  height: 40vh;
+}
+.numericPad {
+  display: grid;
+  width: 80%;
+
+  height: 40vh;
+  grid-template-columns: repeat(3, 33%);
+  column-gap: 1px;
+  grid-row-gap: 1px;
+  margin-bottom: 10px;
+}
+.arthKeys {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.arthKeys .key {
+  background: red;
+  text-align: center;
+  font-size: 1.2em;
+}
+.key {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.key:hover {
+  cursor: pointer;
+}
+
+.numericPad .key {
+  background: blue;
+  font-size: 1.4em;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+
+/* Media queries section */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 700px) {
+  .app {
+    width: 60vw;
+    margin-bottom: 15vh;
+  }
+}
+
+@media only screen and (max-height: 350px) {
+  .arthKeys {
+    line-height: 1;
+    min-height: 103px;
+  }
+  .arthKeys .key {
+    font-size: 1em;
+  }
+  .numericPad .key {
+    font-size: 1.2em;
+  }
+  .app {
+    margin-bottom: 10vh;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  ...;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  ...;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  ...;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  ...;
+}
