@@ -49,6 +49,7 @@ class App extends Component {
   };
 
   handleEqual = () => {
+    // eslint-disable-next-line
     let result = eval(this.state.display);
     this.setState({
       display: result
