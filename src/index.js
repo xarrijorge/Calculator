@@ -17,19 +17,34 @@ function Display(props) {
 class App extends Component {
   state = {
     display: "",
-    value: 0,
+    previous: "",
+    current: "",
     result: 0
   };
 
   handleClick = evt => {
+    let mathKeys = ["-", "+", "*", "/"];
+
     this.setState({
       display: this.state.display + evt.target.id[1],
-      value: Number(this.state.display)
+      current: evt.target.id[1],
+      previous: this.state.display[this.state.display.length - 1]
     });
+    if (
+      mathKeys.includes(this.state.current) &&
+      mathKeys.includes(this.state.previous)
+    ) {
+      console.log("they are both in array!");
+      this.setState({
+        display: this.state.display.slice(0, -1) + this.state.current
+      });
+    }
   };
   clearDisplay = () => {
     this.setState({
-      display: ""
+      display: "",
+      current: "",
+      previous: ""
     });
   };
 
@@ -47,6 +62,11 @@ class App extends Component {
   };
 
   render() {
+    console.log(
+      `display:' ${this.state.display}, 'current:' ${
+        this.state.current
+      }, 'previous: ${this.state.previous}`
+    );
     let mathKeys = ["-", "+", "*", "/"];
     let numKeysList = [7, 8, 9, 4, 5, 6, 1, 2, 3, ".", 0];
     let numKeys = [];
@@ -56,6 +76,7 @@ class App extends Component {
       numKeys.push(
         <Button
           className="key"
+          key={i}
           num={i}
           id={"s" + i}
           handleClick={this.handleClick}
@@ -64,7 +85,7 @@ class App extends Component {
     }
     for (let k of mathKeys) {
       arthKeys.push(
-        <Button num={k} id={"s" + k} handleClick={this.handleClick} />
+        <Button key={k} num={k} id={"s" + k} handleClick={this.handleClick} />
       );
     }
 
